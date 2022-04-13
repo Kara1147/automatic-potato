@@ -1,0 +1,3 @@
+[submodule "include/krossock"]
+	path = include/krossock
+	url = https://github.com/Kara1147/krossock.git

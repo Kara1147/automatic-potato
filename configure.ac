@@ -59,6 +59,9 @@ AS_CASE(["$host_os"],
 AM_INIT_AUTOMAKE([subdir-objects])
 WARN_CFLAGS="-W -Wall -Wunused -Werror"
 AC_SUBST(WARN_CFLAGS)
+AC_CONFIG_SUBDIRS([
+  include/krossock
+])
 AC_CONFIG_SRCDIR([src/])
 AC_CONFIG_HEADERS([config.h])
 AX_VALGRIND_DFLT([memcheck], [on])
@@ -77,5 +80,6 @@ AC_CONFIG_FILES([
   Makefile
   src/Makefile
   tests/Makefile
+  include/Makefile
 ])
 AC_OUTPUT
