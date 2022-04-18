@@ -24,7 +24,7 @@
 
 AM_CFLAGS = $(WARN_CFLAGS) -I$(top_builddir)/include/krossock/src
 bin_PROGRAMS = $(top_builddir)/bin/onslaught
-__top_builddir__bin_openload_SOURCES = onslaught.c
+__top_builddir__bin_openload_SOURCES = onslaught.c parse_args.c
 __top_builddir__bin_openload_LDFLAGS = -static-libgcc -static $(top_builddir)/include/krossock/bin/libkrossock.a
 __top_builddir__bin_openload_LDADD = -lkrossock -lssl -lcrypto
 

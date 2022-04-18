@@ -59,6 +59,7 @@ AS_CASE(["$host_os"],
 AM_INIT_AUTOMAKE([subdir-objects])
 WARN_CFLAGS="-W -Wall -Wunused -Werror"
 AC_SUBST(WARN_CFLAGS)
+AC_CONFIG_MACRO_DIRS([m4])
 AC_CONFIG_SUBDIRS([
   include/krossock
 ])
