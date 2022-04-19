@@ -27,11 +27,13 @@
 void usage()
 {
 	puts("\
-Usage: onslaught [options...] [URL]\n\
-   or: onslaught [options...] URL -P PROCESS [process options...] [URL]\n\
-                 [-P PROCESS [process options...] [URL]]\n\
-   or: onslaught [options...] -P PROCESS [process options...] URL\n\
-                 [-P PROCESS [process options...] URL]\n\
+Usage: onslaught [options...] URL [URL...]\n\
+   or: onslaught [options...] URL [URL...]\n\
+                  -P PROCESS [process options...] [URL]\n\
+                 [-P PROCESS [process options...] [URL] ...]\n\
+   or: onslaught [options...]\n\
+                  -P PROCESS [process options...] URL\n\
+                 [-P PROCESS [process options...] URL ...]\n\
 Send http(s) requests to URL.\n\
 A URL may be specified in the process configuration; which overrides the\n\
 global URL assignment.\n\
@@ -44,6 +46,7 @@ Options:\n\
   -p, --processes PROCESSES  number of parallel processes to run (default 5)\n\
   -P, --configure PROCESS    specify process options for the process identified\n\
                              by PROCESS: a number from 1 to PROCESSES\n\
+                             this option may be used multiple times\n\
  Process Options:\n\
   -d, --delay DELAY          minimum delay in milliseconds between requests\n\
                              if specified, the process will choose a random\n\
@@ -60,10 +63,9 @@ process_config get_config(daemon_config dconf, unsigned long int process)
 {
 	unsigned long int i;
 
-	for (i = 0; i < dconf->configs; i++) {
+	for (i = 0; i < dconf->configs; i++)
 		if (dconf->pconf[i].process == process)
 			return &(dconf->pconf[i]);
-	}
 
 	return NULL;
 }
